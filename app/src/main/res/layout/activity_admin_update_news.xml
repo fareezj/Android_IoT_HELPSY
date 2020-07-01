@@ -15,14 +15,14 @@
 
         <TextView
             android:id="@+id/publish_title"
+            android:textColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:textColor="@color/colorPrimary"
             android:textSize="30dp"
-            android:text="Publish News"
+            android:text="Update News"
             />
 
         <ImageView
@@ -40,13 +40,13 @@
 
         <EditText
             android:id="@+id/input_news_title"
+            android:textColorHint="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/select_item_image"
             android:inputType="textMultiLine"
             android:layout_marginTop="40dp"
             android:padding="15dp"
-            android:textColorHint="@color/colorPrimary"
             android:hint="News Title"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
@@ -58,13 +58,13 @@
         <EditText
             android:id="@+id/input_news_author"
             android:layout_width="match_parent"
+            android:textColorHint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_below="@+id/input_news_name"
             android:inputType="textMultiLine"
             android:layout_marginTop="10dp"
             android:padding="15dp"
             android:hint="News Author"
-            android:textColorHint="@color/colorPrimary"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:background="@drawable/input_design"
@@ -78,8 +78,8 @@
             android:layout_below="@+id/input_news_author"
             android:inputType="textMultiLine"
             android:layout_marginTop="10dp"
-            android:padding="25dp"
             android:textColorHint="@color/colorPrimary"
+            android:padding="25dp"
             android:hint="News Content"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
@@ -98,7 +98,7 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/buttons"
             android:padding="17dp"
-            android:text="Publish News"
+            android:text="Update News"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18sp" />

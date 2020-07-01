@@ -54,9 +54,9 @@ public class AdminManageEventListActivity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull EventViewHolder holder, int position, @NonNull final Events model)
                     {
                         holder.txtEventName.setText(model.getEventName());
-                        holder.txtEventDate.setText(model.getEventDate());
-                        holder.txtEventPax.setText(model.getEventPax());
-                        holder.txtPublishDate.setText(model.getPublishDate());
+                        holder.txtEventDate.setText("Event Date:" + model.getEventDate());
+                        holder.txtEventPax.setText("Total Volunteers:" + model.getEventPax());
+                        holder.txtPublishDate.setText("Published at:" +model.getPublishDate());
                         Picasso.get().load(model.getEventImage()).into(holder.imageView);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {

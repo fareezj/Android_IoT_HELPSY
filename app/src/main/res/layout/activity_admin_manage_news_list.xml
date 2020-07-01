@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@drawable/background_color"
-    tools:context=".AdminVolunteerList">
+    android:layout_height="match_parent"
+    tools:context=".AdminManageNewsList">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_admin_volunteer_list"
+        android:id="@+id/toolbar_admin_news_list"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:paddingTop="15dp"
@@ -19,7 +19,7 @@
             android:id="@+id/custom_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="VOLUNTEER LIST"
+            android:text="NFN NEWS LIST"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -27,15 +27,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id = "@+id/recycler_menu"
+        android:id = "@+id/recycler_news_admin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="15dp"
-        android:layout_below="@+id/toolbar_admin_volunteer_list"
+        android:layout_below="@+id/toolbar_admin_news_list"
         android:scrollbars="vertical">
-
 
     </androidx.recyclerview.widget.RecyclerView>
 
 
 </RelativeLayout>
+
+

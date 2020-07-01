@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/background_color"
     android:layout_height="match_parent"
-    tools:context=".EventDetailsActivity">
+    tools:context=".AboutNFNActivity">
 
 
     <RelativeLayout
@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/nfnimg"
             />
 
         <TextView
@@ -25,12 +26,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/event_image_details"
-            android:text="Event Name"
+            android:text="Need to Feed the Need (NFN)"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             />
 
         <TextView
@@ -38,52 +39,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/event_name_details"
-            android:text="Event Date"
+            android:text=" Need To Feed The Need (NFN) operates a soup kitchen out of Medan Kasih at Lorong Medan Tuanku 2 every Thursday night, and they distribute food and other essentials like milk, diapers and sanitary pads to the homeless and the urban poor around the area."
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             />
 
+
         <TextView
-            android:id="@+id/event_pax_details"
+            android:id="@+id/findUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/event_date_details"
-            android:text="Event Pax"
+            android:text="Find us on: "
             android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
+            android:textSize="19sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginTop="10dp"
             />
 
-        <TextView
-            android:id="@+id/event_desc_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/event_pax_details"
-            android:text="Event Descriptions"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
+        <ImageButton
+            android:id="@+id/facebook_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/findUs"
+            android:src="@drawable/facebook"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:background="#00000000"
             />
 
-        <Button
-            android:id="@+id/join_event_btn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/event_desc_details"
-            android:gravity="center"
-            android:background="@drawable/button_background"
-            android:layout_centerHorizontal="true"
-            android:text="Join This Event !"
-            android:layout_marginTop="100dp"
+        <ImageButton
+            android:id="@+id/instagram_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/findUs"
+            android:src="@drawable/instagram"
+            android:layout_marginStart="230dp"
+            android:layout_marginLeft="230dp"
+            android:background="#00000000"
             />
-
 
 
     </RelativeLayout>

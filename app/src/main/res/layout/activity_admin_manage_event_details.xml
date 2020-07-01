@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_color"
     tools:context=".AdminManageEventDetails">
 
 
@@ -78,9 +79,9 @@
             android:layout_below="@id/event_desc_details"
             android:gravity="center"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/button_background"
             android:text="Volunteers List"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             />
 
         <Button
@@ -91,7 +92,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:text="Edit Event Details"
-            android:background="@color/colorAccent"
+            android:background="@drawable/button_background"
             android:layout_marginTop="30dp"
             />
 
@@ -103,7 +104,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:text="Delete Event"
-            android:background="@color/colorAccent"
+            android:background="@drawable/button_background"
             android:layout_marginTop="30dp"
             />
 

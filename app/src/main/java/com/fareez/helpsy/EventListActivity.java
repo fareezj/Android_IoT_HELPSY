@@ -98,119 +98,119 @@ public class EventListActivity extends AppCompatActivity {
         adapter.startListening();
     }
 
-    public static class AdminManageEventDetailsActivity extends AppCompatActivity {
-
-        ImageView eventImage;
-        TextView eventName, eventDate, eventPax, eventDesc;
-        Button joinEventBtn;
-        private String eventID = "";
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_event_details);
-
-            eventID = getIntent().getStringExtra("eid");
-
-
-            eventImage = findViewById(R.id.event_image_details);
-            eventName = findViewById(R.id.event_name_details);
-            eventDate = findViewById(R.id.event_date_details);
-            eventPax = findViewById(R.id.event_pax_details);
-            eventDesc = findViewById(R.id.event_desc_details);
-            joinEventBtn = findViewById(R.id.join_event_btn);
-
-            getEventDetails(eventID);
-
-            joinEventBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v)
-                {
-                    addToVolunteeringList();
-                }
-            });
-        }
-
-        private void addToVolunteeringList()
-        {
-            String saveCurrentTime, saveCurrentDate;
-
-            Calendar callForDate = Calendar.getInstance();
-            SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
-            saveCurrentDate = currentDate.format(callForDate.getTime());
-
-            SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-            saveCurrentTime = currentTime.format(callForDate.getTime());
-
-            final DatabaseReference volunteersListRef = FirebaseDatabase.getInstance().getReference().child("Volunteer List");
-
-            final HashMap<String, Object> volunteerMap = new HashMap<>();
-            volunteerMap.put("eid", eventID);
-            volunteerMap.put("eventName", eventName.getText().toString());
-            volunteerMap.put("eventDate", eventDate.getText().toString());
-            volunteerMap.put("eventPax", eventPax.getText().toString());
-            volunteerMap.put("eventDesc", eventDesc.getText().toString());
-            volunteerMap.put("date", saveCurrentDate);
-            volunteerMap.put("time", saveCurrentTime);
-
-
-            volunteersListRef.child("User View")
-                    .child(uid)
-                    .child("Events").child(eventID)
-                    .updateChildren(volunteerMap)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task)
-                        {
-                            if(task.isSuccessful())
-                            {
-                                volunteersListRef.child("Admin View")
-                                        .child("Events").child(eventID).child("Volunteers").child(uid)
-                                        .updateChildren(volunteerMap)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task)
-                                            {
-                                                Toast.makeText(AdminManageEventDetailsActivity.this, "Event Successfully Joined !", Toast.LENGTH_SHORT).show();
-
-                                                Intent intent = new Intent(AdminManageEventDetailsActivity.this, AdminHomeActivity.class);
-                                                startActivity(intent);
-                                            }
-                                        });
-                            }
-                        }
-                    });
-
-        }
-
-        private void getEventDetails(String eventID)
-        {
-            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference().child("Event List").child("Item");
-
-            eventRef.child(eventID).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                {
-                    if(dataSnapshot.exists())
-                    {
-                        Events events = dataSnapshot.getValue(Events.class);
-
-                        eventName.setText(events.getEventName());
-                        eventDate.setText(events.getEventDate());
-                        eventPax.setText(events.getEventPax());
-                        eventDesc.setText(events.getEventDesc());
-                        Picasso.get().load(events.getEventImage()).into(eventImage);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError)
-                {
-
-                }
-            });
-        }
-    }
+//    public static class AdminManageEventDetailsActivity extends AppCompatActivity {
+//
+//        ImageView eventImage;
+//        TextView eventName, eventDate, eventPax, eventDesc;
+//        Button joinEventBtn;
+//        private String eventID = "";
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        @Override
+//        protected void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            setContentView(R.layout.activity_event_details);
+//
+//            eventID = getIntent().getStringExtra("eid");
+//
+//
+//            eventImage = findViewById(R.id.event_image_details);
+//            eventName = findViewById(R.id.event_name_details);
+//            eventDate = findViewById(R.id.event_date_details);
+//            eventPax = findViewById(R.id.event_pax_details);
+//            eventDesc = findViewById(R.id.event_desc_details);
+//            joinEventBtn = findViewById(R.id.join_event_btn);
+//
+//            getEventDetails(eventID);
+//
+//            joinEventBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v)
+//                {
+//                    addToVolunteeringList();
+//                }
+//            });
+//        }
+//
+//        private void addToVolunteeringList()
+//        {
+//            String saveCurrentTime, saveCurrentDate;
+//
+//            Calendar callForDate = Calendar.getInstance();
+//            SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
+//            saveCurrentDate = currentDate.format(callForDate.getTime());
+//
+//            SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+//            saveCurrentTime = currentTime.format(callForDate.getTime());
+//
+//            final DatabaseReference volunteersListRef = FirebaseDatabase.getInstance().getReference().child("Volunteer List");
+//
+//            final HashMap<String, Object> volunteerMap = new HashMap<>();
+//            volunteerMap.put("eid", eventID);
+//            volunteerMap.put("eventName", eventName.getText().toString());
+//            volunteerMap.put("eventDate", eventDate.getText().toString());
+//            volunteerMap.put("eventPax", eventPax.getText().toString());
+//            volunteerMap.put("eventDesc", eventDesc.getText().toString());
+//            volunteerMap.put("date", saveCurrentDate);
+//            volunteerMap.put("time", saveCurrentTime);
+//
+//
+//            volunteersListRef.child("User View")
+//                    .child(uid)
+//                    .child("Events").child(eventID)
+//                    .updateChildren(volunteerMap)
+//                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task)
+//                        {
+//                            if(task.isSuccessful())
+//                            {
+//                                volunteersListRef.child("Admin View")
+//                                        .child("Events").child(eventID).child("Volunteers").child(uid)
+//                                        .updateChildren(volunteerMap)
+//                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                            @Override
+//                                            public void onComplete(@NonNull Task<Void> task)
+//                                            {
+//                                                Toast.makeText(AdminManageEventDetailsActivity.this, "Event Successfully Joined !", Toast.LENGTH_SHORT).show();
+//
+//                                                Intent intent = new Intent(AdminManageEventDetailsActivity.this, AdminHomeActivity.class);
+//                                                startActivity(intent);
+//                                            }
+//                                        });
+//                            }
+//                        }
+//                    });
+//
+//        }
+//
+//        private void getEventDetails(String eventID)
+//        {
+//            DatabaseReference eventRef = FirebaseDatabase.getInstance().getReference().child("Event List").child("Item");
+//
+//            eventRef.child(eventID).addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+//                {
+//                    if(dataSnapshot.exists())
+//                    {
+//                        Events events = dataSnapshot.getValue(Events.class);
+//
+//                        eventName.setText(events.getEventName());
+//                        eventDate.setText(events.getEventDate());
+//                        eventPax.setText(events.getEventPax());
+//                        eventDesc.setText(events.getEventDesc());
+//                        Picasso.get().load(events.getEventImage()).into(eventImage);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError)
+//                {
+//
+//                }
+//            });
+//        }
+//    }
 }

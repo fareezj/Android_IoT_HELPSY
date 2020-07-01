@@ -19,7 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AccomplishmentActivity"></activity>
+        <activity android:name=".AboutNFNActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".AdminManageDonationDetailsActivity" />
+        <activity android:name=".AdminManageDonationActivity" />
+        <activity android:name=".AdminUpdateNewsActivity" />
+        <activity android:name=".AdminManageNewsDetailsActivity" />
+        <activity android:name=".AdminManageNewsList" />
+        <activity android:name=".AccomplishmentActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

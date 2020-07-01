@@ -26,7 +26,7 @@ import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity {
 
-    CardView logout_btn, availableEvents, userSettings, joinedEvents, nfnNews, postLocation, accomplishment;
+    CardView logout_btn, availableEvents, userSettings, joinedEvents, nfnNews, postLocation, accomplishment, aboutNFN;
     ImageButton refresh;
     TextView userName;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -48,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         nfnNews = findViewById(R.id.nfn_news_list);
         postLocation = findViewById(R.id.donation_post_location);
         accomplishment = findViewById(R.id.accomplishment);
+        aboutNFN = findViewById(R.id.aboutNFNBtn);
 
         userName.setText(Prevalent.currentOnlineUser.getUsername());
         CircleImageView profileImageView = findViewById(R.id.user_profile_image);
@@ -138,6 +139,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(),AccomplishmentActivity.class));
+            }
+        });
+
+        aboutNFN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),AboutNFNActivity.class));
             }
         });
 

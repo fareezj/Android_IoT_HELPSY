@@ -102,7 +102,6 @@ public class DonationMapsActivity extends FragmentActivity implements
         donatePost = FirebaseDatabase.getInstance().getReference("Donation Post").child("Locations");
 
 
-
         //EXECUTE DEVICE COORDINATION
         donatePost.addValueEventListener(new ValueEventListener() {
             @Override
@@ -123,13 +122,24 @@ public class DonationMapsActivity extends FragmentActivity implements
 
                     String lati = String.valueOf(latitude[0]);
                     String longi = String.valueOf(longitude[0]);
+                    String foodLevel = postMap.getFoodLevel();
+                    String bookLevel = postMap.getBookLevel();
+                    String clothLevel = postMap.getClothLevel();
+                    String signalStrength = postMap.getSignalStrength();
+                    String wirelessSec = postMap.getSecurity();
                     String postID = postMap.getPid();
 
                     LatLng Location = new LatLng(latitude[0], longitude[0]);
 
                     mMap.addMarker(new MarkerOptions().position(Location).
                             title("Post Name:" + postID).
-                            snippet("Container Details"+"\n"+"Foods: FULL"+"\n"+"Clothes: EMPTY"+"\n"+"Books: EMPTY"+"\n"+"Coordinate: " + lati + longi).
+                            snippet(
+                                    "Container Details"+"\n"+
+                                            "Foods: " + foodLevel +"\n"+
+                                            "Clothes: "+ clothLevel +"\n"+
+                                            "Books: "+ bookLevel +"\n"+
+                                            "Coordinate: " + lati + longi).
+
                             icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
                 }
             }
